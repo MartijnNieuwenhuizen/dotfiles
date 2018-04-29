@@ -1,0 +1,13 @@
+[user]
+	name = Martijn Nieuwenhuizen
+	email = mnieuwenhuizen@mirabeau.nl
+
+[alias]
+	c = commit -m
+	ps = push
+	pl = pull
+	s = status
+	f = fetch -pt
+	co = checkout
+	cob = checkout -b
+	purge = "!git branch --merged | grep -Ev '(\\*|master|develop|staging)' | xargs -n 1 git branch -d"
