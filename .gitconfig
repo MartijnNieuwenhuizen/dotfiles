@@ -1,13 +1,46 @@
 [user]
 	name = Martijn Nieuwenhuizen
-	email = mnieuwenhuizen@mirabeau.nl
+	email = martijnnieuwenhuizen@icloud.com
 
 [alias]
-	c = commit -m
-	ps = push
-	pl = pull
-	s = status
-	f = fetch -pt
+	# Branches
 	co = checkout
 	cob = checkout -b
+
+	# Check and add
+	s = status
+	a = "!git add . && git status"
+
+	# Commit
+	c = commit
+	ca = commit --amend
+
+	# Push/Pull
+	ps = push
+	pl = pull --rebase
+
+	# Tags
+	t = tag
+	pst = push --tags
+
+	# Rebase
+	rbi = !sh -c \"git rebase -i $(git merge-base $1 HEAD)\" -
+	r = rebase
+	rc = rebase --continue
+	ra = rebase --abort
+	rs = rebase --skip
+
+	# Cleanup
+	f = fetch -pt
 	purge = "!git branch --merged | grep -Ev '(\\*|master|develop|staging)' | xargs -n 1 git branch -d"
+
+	# Logs & Diffs
+	lg = log --graph --decorate --branches --oneline --remotes --tags --all --color
+	ls = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%an]" --decorate --date=short
+	dlc = diff --cached HEAD^
+
+[merge]
+	tool = vscode
+
+[core]
+	editor = vim
