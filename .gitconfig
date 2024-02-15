@@ -17,6 +17,7 @@
 
 	# Push/Pull
 	ps = push
+	psf = push --force-with-lease
 	pl = pull --rebase
 
 	# Tags
